@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Us - MoodAnalyzer</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <h2 class="logo">MoodAnalyzer</h2>
+            <div class="nav-links">
+                <a href="/" class="active">About Us</a>
+                <a href="/contact/">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <div class="container">
+        <h1 class="title">Meet the MoodAnalyzer Team</h1>
+
+        <div class="team">
+
+            <div class="card">
+                <img src="{% static 'images/member1.jpg' %}" alt="Leena">
+                <h2>Leena Vinod Dihari</h2>
+                <p class="role">Project Lead</p>
+                <p>Email: leena@example.com</p>
+                <p>Responsible for project management and frontend design.</p>
+            </div>
+
+            <div class="card">
+                <img src="{% static 'images/member2.jpg' %}" alt="John">
+                <h2>John Doe</h2>
+                <p class="role">Backend Developer</p>
+                <p>Email: john@example.com</p>
+                <p>Handles backend logic and NLP-based mood detection.</p>
+            </div>
+
+            <div class="card">
+                <img src="{% static 'images/member3.jpg' %}" alt="Jane">
+                <h2>Jane Smith</h2>
+                <p class="role">Data Analyst</p>
+                <p>Email: jane@example.com</p>
+                <p>Works on NLP model accuracy and testing.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 MoodAnalyzer Team</p>
+    </footer>
+
+</body>
+</html>

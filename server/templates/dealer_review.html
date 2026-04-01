@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post Review - {{ dealer.name }}</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; background: #f0f0f0; }
+        .navbar { background: #222; color: white; padding: 15px; text-align: center; }
+        .container { padding: 30px; max-width: 600px; margin: auto; background: #fff; border-radius: 8px; }
+        h2 { margin-bottom: 20px; }
+        input, textarea, select { width: 100%; padding: 8px; margin: 5px 0; border-radius: 5px; border: 1px solid #ccc; }
+        button { padding: 10px 15px; background: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+<div class="navbar">🚗 Dealer Management System</div>
+
+<div class="container">
+    <h2>Post Review for {{ dealer.name }}</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="rating">Rating:</label>
+        <select name="rating" id="rating" required>
+            <option value="">Select Rating</option>
+            <option value="1">1 - Poor</option>
+            <option value="2">2 - Fair</option>
+            <option value="3">3 - Good</option>
+            <option value="4">4 - Very Good</option>
+            <option value="5">5 - Excellent</option>
+        </select>
+
+        <label for="review">Review:</label>
+        <textarea name="review" id="review" rows="5" placeholder="Write your review here..." required></textarea>
+
+        <button type="submit">Submit Review</button>
+    </form>
+</div>
+
+</body>
+</html>

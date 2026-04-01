@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dealers</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            margin: 0;
+        }
+
+        .navbar {
+            background: #222;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 22px;
+        }
+
+        .topbar {
+            text-align: right;
+            padding: 10px 20px;
+            color: white;
+        }
+
+        .container {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .dealer-card {
+            background: white;
+            width: 260px;
+            margin: 15px;
+            display: inline-block;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        }
+
+        img {
+            width: 100%;
+            height: 150px;
+        }
+
+        .btn {
+            background: blue;
+            color: white;
+            padding: 6px 10px;
+            margin-top: 10px;
+            display: inline-block;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="navbar">🚗 Dealer Management System</div>
+
+<div class="topbar">
+    {% if user.is_authenticated %}
+        Welcome, {{ user.username }} |
+        <a href="/logout/" style="color:white;">Logout</a>
+    {% else %}
+        <a href="/login/" style="color:white;">Login</a>
+    {% endif %}
+</div>
+
+<div class="container">
+
+<h2 style="color:white;">Available Dealers</h2>
+
+<!-- FILTER -->
+<a class="btn" href="/">All</a>
+<a class="btn" href="/?state=Mumbai">Mumbai</a>
+<a class="btn" href="/?state=Pune">Pune</a>
+<a class="btn" href="/?state=Delhi">Delhi</a>
+
+<br><br>
+
+<!-- DEALERS -->
+{% for dealer in dealers %}
+<div class="dealer-card">
+    <img src="{% static dealer.image %}">
+    <h3>{{ dealer.name }}</h3>
+    <p>{{ dealer.city }}</p>
+
+    <a class="btn" href="/dealer/{{ dealer.id }}/">View Details</a>
+
+    {% if user.is_authenticated %}
+        <br>
+        <a class="btn">Review Dealer</a>
+    {% endif %}
+</div>
+{% endfor %}
+
+</div>
+
+</body>
+</html>
